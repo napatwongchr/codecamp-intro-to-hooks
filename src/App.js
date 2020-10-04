@@ -1,11 +1,21 @@
 import React from 'react';
-import Form from './Form'
+import EnhancedForm from './renderProps/EnhancedForm'
+import FormRenderProps from './FormRenderProps'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Form />
+      <EnhancedForm initialValues={{
+        firstname: '',
+        lastname: ''
+      }}>
+        {
+          (formProps) => {
+            return <FormRenderProps {...formProps} />
+          }
+        }
+      </EnhancedForm>
     </div>
   );
 }
