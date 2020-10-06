@@ -2,16 +2,8 @@ import React, { useState } from "react";
 import "./Form.css";
 
 function FormHooks() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-
-  function handleFirstnameChange(e) {
-    setFirstname(e.target.value);
-  }
-
-  function handleLastnameChange(e) {
-    setLastname(e.target.value);
-  }
+  const firstname = useFormInput("");
+  const lastname = useFormInput("");
 
   return (
     <div className="form-container">
@@ -20,19 +12,29 @@ function FormHooks() {
         id="firstname"
         name="firstname"
         type="text"
-        value={firstname}
-        onChange={handleFirstnameChange}
+        value={firstname.value}
+        onChange={firstname.handleValueChange}
       />
       <label htmlFor="lastname">Last Name</label>
       <input
         id="lastname"
         name="lastname"
         type="text"
-        value={lastname}
-        onChange={handleLastnameChange}
+        value={lastname.value}
+        onChange={lastname.handleValueChange}
       />
     </div>
   );
+}
+
+function useFormInput(initialName) {
+  const [value, setValue] = useState(initialName);
+
+  function handleValueChange(e) {
+    setValue(e.target.value);
+  }
+
+  return { value, handleValueChange };
 }
 
 export default FormHooks;
