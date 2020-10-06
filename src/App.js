@@ -1,21 +1,11 @@
 import React from "react";
-import EnhancedForm from "./renderProps/EnhancedForm";
-import FormRenderProps from "./FormRenderProps";
+import FormHook from "./components/FormHook";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <EnhancedForm
-        initialValues={{
-          firstname: "",
-          lastname: "",
-        }}
-      >
-        {(formProps) => {
-          return <FormRenderProps {...formProps} />;
-        }}
-      </EnhancedForm>
+      <FormHook />
     </div>
   );
 }
