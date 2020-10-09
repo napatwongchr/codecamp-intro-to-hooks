@@ -1,11 +1,11 @@
 import React from "react";
-import FormHook from "./components/FormHook";
 import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
   return (
     <div className="App">
-      <FormHook />
+      <Counter />
     </div>
   );
 }
